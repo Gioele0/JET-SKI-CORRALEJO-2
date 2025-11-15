@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jet Ski Corralejo – Tours in moto d’acqua a Fuerteventura</title>
+  <meta name="description" content="Escursioni in moto d'acqua a Corralejo, Fuerteventura. Tour guidati verso l'Isla de Lobos e le dune. Prenota in italiano, spagnolo, inglese o francese.">
+  <style>
+    :root {
+      --bg: #f3f4f6;
+      --bg-alt: #ffffff;
+      --primary: #f97316;   /* arancio buggy style */
+      --primary-dark: #ea580c;
+      --accent: #0ea5e9;
+      --text: #0f172a;
+      --muted: #6b7280;
+      --radius: 18px;
+      --shadow: 0 18px 35px rgba(15,23,42,.18);
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img { max-width: 100%; display: block; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.7rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: .95rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(234,88,12,.5);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 40px rgba(234,88,12,.6);
+    }
+    .btn-ghost {
+      background: rgba(15,23,42,.85);
+      color: #fff;
+      border: 1px solid rgba(148,163,184,.7);
+    }
+    .btn-ghost:hover {
+      background: rgba(15,23,42,1);
+    }
+
+    header {
+      background: #0b1120;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      box-shadow: 0 10px 25px rgba(15,23,42,.6);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: .7rem 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #fee2e2, #f97316);
+      position: relative;
+      overflow: hidden;
+    }
+    .logo-mark::after {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 10% 110%, rgba(255,255,255,.9), transparent);
+      opacity: .5;
+    }
+
+    .logo span {
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      font-size: .8rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      font-size: .9rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .nav-links a {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+    .lang-switch label { color: #9ca3af; }
+    .lang-switch select {
+      background: #020617;
+      color: #e5e7eb;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      padding: .25rem .7rem;
+      font-size: .78rem;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: none;
+      font-size: 1.5rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.1rem 3rem;
+    }
+
+    /* HERO */
+    .hero {
+      margin-top: 1.5rem;
+      border-radius: 30px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+      background: #000;
+    }
+    .hero-media {
+      position: relative;
+      height: 360px;
+      background: #020617 url("img/hero-jetski.jpg") center/cover no-repeat;
+      /* Sostituisci hero-jetski.jpg con una foto del sito jetskicorralejofuerteventura.com */
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(15,23,42,.88), rgba(15,23,42,.25));
+    }
+    .hero-content {
+      position: absolute;
+      inset: 0;
+      padding: 1.8rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 600px;
+      color: #fff;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .22rem .7rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,.7);
+      border: 1px solid rgba(148,163,184,.6);
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      margin-bottom: .6rem;
+    }
+    .hero-badge span {
+      padding: .1rem .55rem;
+      border-radius: 999px;
+      background: rgba(248,250,252,.1);
+      border: 1px solid rgba(148,163,184,.6);
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 4vw, 2.8rem);
+      line-height: 1.02;
+      margin-bottom: .5rem;
+      text-transform: uppercase;
+    }
+    .hero-title span {
+      color: var(--primary);
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: #d1d5db;
+      margin-bottom: .8rem;
+    }
+    .hero-text {
+      font-size: .97rem;
+      color: #e5e7eb;
+      max-width: 32rem;
+      margin-bottom: 1.4rem;
+    }
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      align-items: center;
+      margin-bottom: 1.1rem;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      font-size: .83rem;
+      color: #cbd5f5;
+    }
+    .hero-chip {
+      padding: .28rem .65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,.6);
+      background: rgba(15,23,42,.7);
+    }
+
+    /* SECTIONS */
+    section {
+      margin-top: 3rem;
+    }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 1.4rem;
+    }
+    .section-title {
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+    }
+    .section-sub {
+      margin-top: .4rem;
+      font-size: .9rem;
+      color: var(--muted);
+      max-width: 36rem;
+      margin-inline: auto;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.4rem;
+    }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+
+    .card {
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem 1.2rem;
+      box-shadow: 0 10px 22px rgba(15,23,42,.12);
+    }
+
+    .tour-card img {
+      border-radius: 14px;
+      margin-bottom: .7rem;
+      height: 170px;
+      object-fit: cover;
+    }
+    .pill {
+      display: inline-block;
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      padding: .18rem .55rem;
+      border-radius: 999px;
+      background: rgba(249,115,22,.08);
+      color: var(--primary-dark);
+      font-weight: 700;
+      margin-bottom: .4rem;
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      margin-bottom: .3rem;
+    }
+    .card p {
+      font-size: .88rem;
+      color: var(--muted);
+      margin-bottom: .4rem;
+    }
+    .tagline {
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--primary-dark);
+      margin-bottom: .4rem;
+    }
+    .price {
+      font-weight: 800;
+      font-size: 1rem;
+      margin-top: .2rem;
+    }
+    .price span {
+      font-size: .78rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .list {
+      list-style: none;
+      margin-top: .4rem;
+      font-size: .85rem;
+      color: var(--muted);
+    }
+    .list li {
+      margin-bottom: .25rem;
+      display: flex;
+      gap: .4rem;
+    }
+    .list li::before {
+      content: "›";
+      color: var(--accent);
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 1.2fr minmax(0,.9fr);
+      gap: 1.7rem;
+      align-items: flex-start;
+    }
+
+    .info-box {
+      background: #0f172a;
+      color: #e5e7eb;
+      border-radius: var(--radius);
+      padding: 1.1rem 1.2rem;
+      box-shadow: 0 14px 28px rgba(15,23,42,.6);
+      font-size: .9rem;
+    }
+    .info-box h3 {
+      font-size: .9rem;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      margin-bottom: .3rem;
+      color: #fefce8;
+    }
+
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: .7rem;
+    }
+    .gallery-grid img {
+      border-radius: 16px;
+      height: 130px;
+      object-fit: cover;
+      box-shadow: 0 10px 22px rgba(15,23,42,.25);
+    }
+
+    /* CONTACT */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr);
+      gap: 1.7rem;
+      align-items: flex-start;
+    }
+    form {
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.3rem 1.4rem;
+      box-shadow: 0 10px 24px rgba(15,23,42,.15);
+    }
+    .field {
+      margin-bottom: .8rem;
+    }
+    label {
+      display: block;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: .15rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: .55rem .7rem;
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,.7);
+      font-size: .88rem;
+      font-family: inherit;
+      background: #f9fafb;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(249,115,22,.35);
+      background: #fff;
+    }
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .contact-info {
+      font-size: .9rem;
+      color: var(--muted);
+    }
+    .contact-info strong {
+      color: var(--text);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.1rem 1.2rem;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+    footer a {
+      color: var(--primary-dark);
+      font-weight: 500;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-media { height: 420px; }
+      .grid-3, .grid-2,
+      .info-row, .contact-wrap {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+    }
+
+    @media (max-width: 780px) {
+      .nav {
+        padding-block: .6rem;
+      }
+      .nav-links {
+        position: fixed;
+        inset: 52px 1rem auto 1rem;
+        background: #020617;
+        border-radius: 18px;
+        padding: .85rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: 0 16px 40px rgba(0,0,0,.8);
+        transform-origin: top;
+        transform: scaleY(.7);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .16s ease, transform .16s ease;
+      }
+      .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scaleY(1);
+      }
+      .nav-toggle {
+        display: block;
+      }
+      .lang-switch { font-size: .72rem; }
+      .lang-switch select { font-size: .72rem; }
+      .hero-content {
+        padding-inline: 1.4rem;
+      }
+      .hero-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <div class="logo">
+      <div class="logo-mark"></div>
+      <span>Jet Ski Corralejo</span>
+    </div>
+    <button class="nav-toggle" aria-label="Apri il menu">&#9776;</button>
+    <div class="nav-links">
+      <a href="#home" data-i18n="nav_home">Home</a>
+      <a href="#tours" data-i18n="nav_tours">Tour</a>
+      <a href="#routes" data-i18n="nav_routes">Itinerario</a>
+      <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+      <a href="#contact" data-i18n="nav_contact">Contatti</a>
+    </div>
+    <div class="lang-switch">
+      <label for="language-select">Lang</label>
+      <select id="language-select">
+        <option value="it">IT</option>
+        <option value="es">ES</option>
+        <option value="en">EN</option>
+        <option value="fr">FR</option>
+      </select>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-media">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span data-i18n="hero_badge">Jet ski tours</span>
+          Corralejo · Fuerteventura
+        </div>
+        <h1 class="hero-title">
+          <span data-i18n="hero_title_main">Fly on the water</span><br>
+          <span data-i18n="hero_title_sub">jet ski in Corralejo</span>
+        </h1>
+        <p class="hero-sub" data-i18n="hero_keywords">
+          isla de lobos · dunes · atlantic ocean
+        </p>
+        <p class="hero-text" data-i18n="hero_text">
+          Parti dal porto di Corralejo e scopri l’Isla de Lobos e le dune del nord di Fuerteventura con tour guidati in moto d’acqua. Nessuna patente nautica richiesta.
+        </p>
+        <div class="hero-cta">
+          <a href="https://wa.me/34643275110" target="_blank" class="btn btn-primary" data-i18n="hero_cta_primary">
+            Prenota ora su WhatsApp
+          </a>
+          <a href="#tours" class="btn btn-ghost" data-i18n="hero_cta_secondary">
+            Vedi tutti i tour
+          </a>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-chip" data-i18n="hero_meta1">Durata: 40–60–90 min</div>
+          <div class="hero-chip" data-i18n="hero_meta2">Fino a 2 persone per jet ski</div>
+          <div class="hero-chip" data-i18n="hero_meta3">Aperto tutti i giorni</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOURS -->
+  <section id="tours">
+    <div class="section-heading">
+      <h2 class="section-title" data-i18n="section_tours_title">I nostri tour</h2>
+      <p class="section-sub" data-i18n="section_tours_sub">
+        Scegli l’escursione in moto d’acqua che fa per te: da un assaggio di adrenalina a un’avventura completa tra Lobos, dune e costa vulcanica.
+      </p>
+    </div>
+
+    <div class="grid grid-3">
+      <!-- Tour 1 -->
+      <article class="card tour-card">
+        <span class="pill" data-i18n="tours_card1_tag">40 min · starter</span>
+        <img src="img/tour-short.jpg" alt="Jet ski breve tour Corralejo">
+        <!-- Sostituisci con una foto breve tour dal sito originale -->
+        <h3 data-i18n="tours_card1_title">Coastline Corralejo</h3>
+        <p class="tagline" data-i18n="tours_card1_sub">prima esperienza in mare</p>
+        <p data-i18n="tours_card1_text">
+          Tour perfetto per rompere il ghiaccio: uscita dal porto di Corralejo, vista sulle dune e tratti a velocità moderata.
+        </p>
+        <p class="price" data-i18n="tours_card1_price">
+          da 79€ <span>/ jet ski (1–2 persone)</span>
+        </p>
+        <ul class="list">
+          <li data-i18n="tours_card1_li1">Briefing sicurezza e prova di guida</li>
+          <li data-i18n="tours_card1_li2">Panoramica sulla baia di Corralejo</li>
+          <li data-i18n="tours_card1_li3">Ideale per chi sale per la prima volta</li>
+        </ul>
+      </article>
+
+      <!-- Tour 2 -->
+      <article class="card tour-card">
+        <span class="pill" data-i18n="tours_card2_tag">60 min · best seller</span>
+        <img src="img/tour-lobos.jpg" alt="Escursione jet ski Isla de Lobos">
+        <!-- Sostituisci con foto Lobos dal sito originale -->
+        <h3 data-i18n="tours_card2_title">Isla de Lobos Tour</h3>
+        <p class="tagline" data-i18n="tours_card2_sub">isola, vulcani e mare turchese</p>
+        <p data-i18n="tours_card2_text">
+          Escursione completa verso l’Isla de Lobos con tratti veloci, soste foto e panorami spettacolari su Lanzarote.
+        </p>
+        <p class="price" data-i18n="tours_card2_price">
+          da 99€ <span>/ jet ski (1–2 persone)</span>
+        </p>
+        <ul class="list">
+          <li data-i18n="tours_card2_li1">Giro intorno all’Isla de Lobos</li>
+          <li data-i18n="tours_card2_li2">Guida professionale che apre il gruppo</li>
+          <li data-i18n="tours_card2_li3">Perfetto per coppie e amici</li>
+        </ul>
+      </article>
+
+      <!-- Tour 3 -->
+      <article class="card tour-card">
+        <span class="pill" data-i18n="tours_card3_tag">90 min · full experience</span>
+        <img src="img/tour-long.jpg" alt="Tour lungo jet ski Fuerteventura">
+        <!-- Sostituisci con foto tour lungo dal sito originale -->
+        <h3 data-i18n="tours_card3_title">Atlantic Adventure</h3>
+        <p class="tagline" data-i18n="tours_card3_sub">più tempo, più adrenalina</p>
+        <p data-i18n="tours_card3_text">
+          Il tour più completo: costa nord estesa, soste in punti panoramici e lunghi tratti in mare aperto.
+        </p>
+        <p class="price" data-i18n="tours_card3_price">
+          da 139€ <span>/ jet ski (1–2 persone)</span>
+        </p>
+        <ul class="list">
+          <li data-i18n="tours_card3_li1">Itinerario flessibile in base al meteo</li>
+          <li data-i18n="tours_card3_li2">Consigliato a chi ha già guidato un jet ski</li>
+          <li data-i18n="tours_card3_li3">Possibilità di foto e video durante il tour</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ROUTES / INFO -->
+  <section id="routes">
+    <div class="section-heading">
+      <h2 class="section-title" data-i18n="section_routes_title">Itinerario tipo</h2>
+      <p class="section-sub" data-i18n="section_routes_sub">
+        Ogni uscita è guidata dal nostro team e può variare in base a vento e mare, ma in generale il percorso segue queste tappe.
+      </p>
+    </div>
+
+    <div class="info-row">
+      <div class="card">
+        <h3 class="tagline" data-i18n="routes_list_title">step by step</h3>
+        <ul class="list">
+          <li data-i18n="routes_li1">Check-in al porto di Corralejo e compilazione modulo</li>
+          <li data-i18n="routes_li2">Briefing su sicurezza, segnali e posizione in mare</li>
+          <li data-i18n="routes_li3">Uscita dal porto in fila dietro alla guida</li>
+          <li data-i18n="routes_li4">Navigazione verso Isla de Lobos e/o zona dune</li>
+          <li data-i18n="routes_li5">Soste foto e tempo per godersi il paesaggio</li>
+          <li data-i18n="routes_li6">Rientro al porto e debriefing finale</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h3 data-i18n="routes_box_title">Sicurezza e requisiti</h3>
+        <p data-i18n="routes_box_text1">
+          Nessuna patente nautica è richiesta, ma è necessario seguire sempre le indicazioni della guida. Casacca salvagente obbligatoria per tutti i partecipanti.
+        </p>
+        <p style="margin-top:.4rem;" data-i18n="routes_box_text2">
+          Età minima conducente e passeggero possono variare in base alla normativa locale: contattaci per i dettagli aggiornati. In caso di condizioni meteo sfavorevoli potremmo spostare l’orario o il giorno dell’escursione.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <div class="section-heading">
+      <h2 class="section-title" data-i18n="section_why_title">Perché scegliere noi</h2>
+      <p class="section-sub" data-i18n="section_why_sub">
+        Un team locale, appassionato di mare, per offrirti un’esperienza in moto d’acqua sicura, divertente e adatta a tutti.
+      </p>
+    </div>
+    <div class="grid grid-2">
+      <article class="card">
+        <h3 data-i18n="why1_title">Guida professionale</h3>
+        <p data-i18n="why1_text">
+          I nostri istruttori conoscono ogni metro della costa di Corralejo e ti accompagnano sempre durante il tour.
+        </p>
+      </article>
+      <article class="card">
+        <h3 data-i18n="why2_title">Attrezzatura inclusa</h3>
+        <p data-i18n="why2_text">
+          Giubbotto salvagente sempre incluso, muta corta disponibile quando serve e jet ski moderni e controllati.
+        </p>
+      </article>
+      <article class="card">
+        <h3 data-i18n="why3_title">Esperienza per tutti</h3>
+        <p data-i18n="why3_text">
+          Tour pensati per coppie, gruppi di amici e famiglie con ragazzi. Scegli il livello di adrenalina che preferisci.
+        </p>
+      </article>
+      <article class="card">
+        <h3 data-i18n="why4_title">Foto e ricordi</h3>
+        <p data-i18n="why4_text">
+          Su richiesta possiamo aiutarti a immortalare l’uscita con foto e video, così porti a casa un ricordo speciale.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="section-heading">
+      <h2 class="section-title" data-i18n="section_gallery_title">Gallery</h2>
+      <p class="section-sub" data-i18n="section_gallery_sub">
+        Alcuni momenti delle nostre escursioni tra corridoi di roccia vulcanica, acqua cristallina e cielo delle Canarie.
+      </p>
+    </div>
+    <div class="gallery-grid">
+      <img src="img/gallery1.jpg" alt="Jet ski Corralejo Fuerteventura">
+      <img src="img/gallery2.jpg" alt="Isla de Lobos in jet ski">
+      <img src="img/gallery3.jpg" alt="Dune e mare a Corralejo">
+      <img src="img/gallery4.jpg" alt="Gruppo in escursione jet ski">
+      <!-- Tutte queste immagini possono essere prese dal sito jetskicorralejofuerteventura.com,
+           scaricate e rinominate nella cartella img/ -->
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-heading">
+      <h2 class="section-title" data-i18n="section_contact_title">Prenotazioni & contatti</h2>
+      <p class="section-sub" data-i18n="section_contact_sub">
+        Scrivici per verificare disponibilità, ricevere una proposta personalizzata o prenotare subito il tuo tour in moto d’acqua.
+      </p>
+    </div>
+
+    <div class="contact-wrap">
+      <form action="#" method="post">
+        <div class="field">
+          <label for="name" data-i18n="contact_label_name">Nome e cognome</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="email" data-i18n="contact_label_email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="phone" data-i18n="contact_label_phone">Telefono / WhatsApp</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+        <div class="field">
+          <label for="date" data-i18n="contact_label_date">Data preferita</label>
+          <input type="date" id="date" name="date">
+        </div>
+        <div class="field">
+          <label for="people" data-i18n="contact_label_people">Numero di persone</label>
+          <input type="number" id="people" name="people" min="1" max="20" value="2">
+        </div>
+        <div class="field">
+          <label for="message" data-i18n="contact_label_message">Messaggio</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit" style="width:100%;" data-i18n="contact_submit">
+          Invia richiesta
+        </button>
+        <p style="margin-top:.5rem;font-size:.78rem;color:var(--muted);" data-i18n="contact_extra">
+          Risponderemo il prima possibile con conferma, orari disponibili e prezzo finale dell’escursione.
+        </p>
+      </form>
+
+      <div class="contact-info">
+        <p><strong data-i18n="contact_block_title">Contatti diretti</strong></p>
+        <p data-i18n="contact_block_phone">
+          Tel./WhatsApp: <strong>+34 643 275 110</strong>
+        </p>
+        <p data-i18n="contact_block_email">
+          Email: <strong>info@jetskicorralejo.com</strong>
+        </p>
+        <p data-i18n="contact_block_address">
+          Porto di Corralejo – 35660, Fuerteventura, Isole Canarie (Spagna)
+        </p>
+        <p style="margin-top:.7rem;" data-i18n="contact_block_langs">
+          Parliamo italiano, spagnolo, inglese e francese.
+        </p>
+        <p style="margin-top:.7rem;font-size:.85rem;" data-i18n="contact_block_how">
+          Siamo a pochi minuti a piedi dal centro di Corralejo. Se alloggi in hotel, possiamo aiutarti a organizzare il trasferimento fino al porto.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span data-i18n="footer_text">
+    © Jet Ski Corralejo – Escursioni in moto d’acqua a Corralejo, Fuerteventura.
+  </span>
+</footer>
+
+<script>
+  // NAV MOBILE
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // TRADUZIONI
+  const translations = {
+    it: {
+      nav_home: "Home",
+      nav_tours: "Tour",
+      nav_routes: "Itinerario",
+      nav_gallery: "Gallery",
+      nav_contact: "Contatti",
+
+      hero_badge: "Jet ski tours",
+      hero_title_main: "Fly on the water",
+      hero_title_sub: "jet ski in Corralejo",
+      hero_keywords: "isla de lobos · dune · oceano atlantico",
+      hero_text: "Parti dal porto di Corralejo e scopri l’Isla de Lobos e le dune del nord di Fuerteventura con tour guidati in moto d’acqua. Nessuna patente nautica richiesta.",
+      hero_cta_primary: "Prenota ora su WhatsApp",
+      hero_cta_secondary: "Vedi tutti i tour",
+      hero_meta1: "Durata: 40–60–90 min",
+      hero_meta2: "Fino a 2 persone per jet ski",
+      hero_meta3: "Aperto tutti i giorni",
+
+      section_tours_title: "I nostri tour",
+      section_tours_sub: "Scegli l’escursione in moto d’acqua che fa per te: da un assaggio di adrenalina a un’avventura completa tra Lobos, dune e costa vulcanica.",
+
+      tours_card1_tag: "40 min · starter",
+      tours_card1_title: "Coastline Corralejo",
+      tours_card1_sub: "prima esperienza in mare",
+      tours_card1_text: "Tour perfetto per rompere il ghiaccio: uscita dal porto di Corralejo, vista sulle dune e tratti a velocità moderata.",
+      tours_card1_price: "da 79€ <span>/ jet ski (1–2 persone)</span>",
+      tours_card1_li1: "Briefing sicurezza e prova di guida",
+      tours_card1_li2: "Panoramica sulla baia di Corralejo",
+      tours_card1_li3: "Ideale per chi sale per la prima volta",
+
+      tours_card2_tag: "60 min · best seller",
+      tours_card2_title: "Isla de Lobos Tour",
+      tours_card2_sub: "isola, vulcani e mare turchese",
+      tours_card2_text: "Escursione completa verso l’Isla de Lobos con tratti veloci, soste foto e panorami spettacolari su Lanzarote.",
+      tours_card2_price: "da 99€ <span>/ jet ski (1–2 persone)</span>",
+      tours_card2_li1: "Giro intorno all’Isla de Lobos",
+      tours_card2_li2: "Guida professionale che apre il gruppo",
+      tours_card2_li3: "Perfetto per coppie e amici",
+
+      tours_card3_tag: "90 min · full experience",
+      tours_card3_title: "Atlantic Adventure",
+      tours_card3_sub: "più tempo, più adrenalina",
+      tours_card3_text: "Il tour più completo: costa nord estesa, soste in punti panoramici e lunghi tratti in mare aperto.",
+      tours_card3_price: "da 139€ <span>/ jet ski (1–2 persone)</span>",
+      tours_card3_li1: "Itinerario flessibile in base al meteo",
+      tours_card3_li2: "Consigliato a chi ha già guidato un jet ski",
+      tours_card3_li3: "Possibilità di foto e video durante il tour",
+
+      section_routes_title: "Itinerario tipo",
+      section_routes_sub: "Ogni uscita è guidata dal nostro team e può variare in base a vento e mare, ma in generale il percorso segue queste tappe.",
+      routes_list_title: "step by step",
+      routes_li1: "Check-in al porto di Corralejo e compilazione modulo",
+      routes_li2: "Briefing su sicurezza, segnali e posizione in mare",
+      routes_li3: "Uscita dal porto in fila dietro alla guida",
+      routes_li4: "Navigazione verso Isla de Lobos e/o zona dune",
+      routes_li5: "Soste foto e tempo per godersi il paesaggio",
+      routes_li6: "Rientro al porto e debriefing finale",
+      routes_box_title: "Sicurezza e requisiti",
+      routes_box_text1: "Nessuna patente nautica è richiesta, ma è necessario seguire sempre le indicazioni della guida. Casacca salvagente obbligatoria per tutti i partecipanti.",
+      routes_box_text2: "Età minima conducente e passeggero possono variare in base alla normativa locale: contattaci per i dettagli aggiornati. In caso di condizioni meteo sfavorevoli potremmo spostare l’orario o il giorno dell’escursione.",
+
+      section_why_title: "Perché scegliere noi",
+      section_why_sub: "Un team locale, appassionato di mare, per offrirti un’esperienza in moto d’acqua sicura, divertente e adatta a tutti.",
+      why1_title: "Guida professionale",
+      why1_text: "I nostri istruttori conoscono ogni metro della costa di Corralejo e ti accompagnano sempre durante il tour.",
+      why2_title: "Attrezzatura inclusa",
+      why2_text: "Giubbotto salvagente sempre incluso, muta corta disponibile quando serve e jet ski moderni e controllati.",
+      why3_title: "Esperienza per tutti",
+      why3_text: "Tour pensati per coppie, gruppi di amici e famiglie con ragazzi. Scegli il livello di adrenalina che preferisci.",
+      why4_title: "Foto e ricordi",
+      why4_text: "Su richiesta possiamo aiutarti a immortalare l’uscita con foto e video, così porti a casa un ricordo speciale.",
+
+      section_gallery_title: "Gallery",
+      section_gallery_sub: "Alcuni momenti delle nostre escursioni tra corridoi di roccia vulcanica, acqua cristallina e cielo delle Canarie.",
+
+      section_contact_title: "Prenotazioni & contatti",
+      section_contact_sub: "Scrivici per verificare disponibilità, ricevere una proposta personalizzata o prenotare subito il tuo tour in moto d’acqua.",
+      contact_label_name: "Nome e cognome",
+      contact_label_email: "Email",
+      contact_label_phone: "Telefono / WhatsApp",
+      contact_label_date: "Data preferita",
+      contact_label_people: "Numero di persone",
+      contact_label_message: "Messaggio",
+      contact_submit: "Invia richiesta",
+      contact_extra: "Risponderemo il prima possibile con conferma, orari disponibili e prezzo finale dell’escursione.",
+      contact_block_title: "Contatti diretti",
+      contact_block_phone: "Tel./WhatsApp: <strong>+34 643 275 110</strong>",
+      contact_block_email: "Email: <strong>info@jetskicorralejo.com</strong>",
+      contact_block_address: "Porto di Corralejo – 35660, Fuerteventura, Isole Canarie (Spagna)",
+      contact_block_langs: "Parliamo italiano, spagnolo, inglese e francese.",
+      contact_block_how: "Siamo a pochi minuti a piedi dal centro di Corralejo. Se alloggi in hotel, possiamo aiutarti a organizzare il trasferimento fino al porto.",
+      footer_text: "© Jet Ski Corralejo – Escursioni in moto d’acqua a Corralejo, Fuerteventura."
+    },
+
+    es: {
+      nav_home: "Inicio",
+      nav_tours: "Tours",
+      nav_routes: "Ruta",
+      nav_gallery: "Galería",
+      nav_contact: "Contacto",
+
+      hero_badge: "Excursiones en moto de agua",
+      hero_title_main: "Vuela sobre el agua",
+      hero_title_sub: "jet ski en Corralejo",
+      hero_keywords: "isla de lobos · dunas · océano atlántico",
+      hero_text: "Sal desde el puerto de Corralejo y descubre Isla de Lobos y las dunas del norte de Fuerteventura con tours guiados en moto de agua. No se requiere licencia náutica.",
+      hero_cta_primary: "Reserva por WhatsApp",
+      hero_cta_secondary: "Ver todos los tours",
+      hero_meta1: "Duración: 40–60–90 min",
+      hero_meta2: "Hasta 2 personas por moto",
+      hero_meta3: "Abierto todos los días",
+
+      section_tours_title: "Nuestros tours",
+      section_tours_sub: "Elige la excursión en moto de agua que más se adapta a ti: desde una primera experiencia hasta una aventura completa entre Lobos, dunas y costa volcánica.",
+
+      tours_card1_tag: "40 min · inicio",
+      tours_card1_title: "Costa de Corralejo",
+      tours_card1_sub: "primera experiencia en el mar",
+      tours_card1_text: "Salida desde el puerto de Corralejo, vistas a las dunas y tramos a velocidad moderada para disfrutar con calma.",
+      tours_card1_price: "desde 79€ <span>/ moto (1–2 personas)</span>",
+      tours_card1_li1: "Briefing de seguridad y prueba de conducción",
+      tours_card1_li2: "Panorámica de la bahía de Corralejo",
+      tours_card1_li3: "Ideal para subir por primera vez",
+
+      tours_card2_tag: "60 min · más vendido",
+      tours_card2_title: "Isla de Lobos Tour",
+      tours_card2_sub: "isla, volcanes y agua turquesa",
+      tours_card2_text: "Excursión completa hacia Isla de Lobos con tramos rápidos, paradas para fotos y vistas impresionantes a Lanzarote.",
+      tours_card2_price: "desde 99€ <span>/ moto (1–2 personas)</span>",
+      tours_card2_li1: "Vuelta alrededor de Isla de Lobos",
+      tours_card2_li2: "Guía profesional abriendo el grupo",
+      tours_card2_li3: "Perfecto para parejas y amigos",
+
+      tours_card3_tag: "90 min · experiencia total",
+      tours_card3_title: "Atlantic Adventure",
+      tours_card3_sub: "más tiempo, más adrenalina",
+      tours_card3_text: "Nuestro tour más completo: costa norte extendida, paradas panorámicas y largos tramos en mar abierto.",
+      tours_card3_price: "desde 139€ <span>/ moto (1–2 personas)</span>",
+      tours_card3_li1: "Ruta flexible según el tiempo",
+      tours_card3_li2: "Recomendado para quien ya ha conducido jet ski",
+      tours_card3_li3: "Posibilidad de fotos y vídeos durante el tour",
+
+      section_routes_title: "Ruta tipo",
+      section_routes_sub: "Cada salida está guiada por nuestro equipo y puede variar según el viento y el mar, pero normalmente seguimos estos pasos.",
+      routes_list_title: "paso a paso",
+      routes_li1: "Check-in en el puerto de Corralejo y formulario",
+      routes_li2: "Briefing sobre seguridad, señales y posición en el mar",
+      routes_li3: "Salida del puerto en fila detrás del guía",
+      routes_li4: "Navegación hacia Isla de Lobos y/o zona de dunas",
+      routes_li5: "Paradas para fotos y tiempo para disfrutar del paisaje",
+      routes_li6: "Regreso al puerto y comentario final",
+      routes_box_title: "Seguridad y requisitos",
+      routes_box_text1: "No se requiere licencia náutica, pero es obligatorio seguir siempre las indicaciones del guía. Chaleco salvavidas obligatorio para todos los participantes.",
+      routes_box_text2: "La edad mínima para conductor y pasajero puede variar según la normativa local: contáctanos para los detalles actualizados. En caso de mal tiempo podemos cambiar la hora o el día del tour.",
+
+      section_why_title: "Por qué elegirnos",
+      section_why_sub: "Equipo local, amante del mar, para ofrecerte una experiencia en moto de agua segura, divertida y para todos.",
+      why1_title: "Guía profesional",
+      why1_text: "Nuestros instructores conocen cada rincón de la costa de Corralejo y te acompañan durante todo el tour.",
+      why2_title: "Equipo incluido",
+      why2_text: "Chaleco salvavidas siempre incluido, shorty disponible cuando hace falta y jet ski modernos y revisados.",
+      why3_title: "Experiencia para todos",
+      why3_text: "Tours pensados para parejas, grupos de amigos y familias con niños grandes. Tú decides el nivel de adrenalina.",
+      why4_title: "Fotos y recuerdos",
+      why4_text: "Si lo deseas, podemos ayudarte a llevarte a casa fotos y vídeos de tu salida.",
+
+      section_gallery_title: "Galería",
+      section_gallery_sub: "Algunos momentos de nuestras excursiones entre rocas volcánicas, agua cristalina y cielo canario.",
+
+      section_contact_title: "Reservas y contacto",
+      section_contact_sub: "Escríbenos para comprobar disponibilidad, recibir una propuesta personalizada o reservar tu tour en moto de agua.",
+      contact_label_name: "Nombre y apellido",
+      contact_label_email: "Correo electrónico",
+      contact_label_phone: "Teléfono / WhatsApp",
+      contact_label_date: "Fecha preferida",
+      contact_label_people: "Número de personas",
+      contact_label_message: "Mensaje",
+      contact_submit: "Enviar solicitud",
+      contact_extra: "Te contestaremos lo antes posible con confirmación, horarios disponibles y precio final del tour.",
+      contact_block_title: "Contacto directo",
+      contact_block_phone: "Tel./WhatsApp: <strong>+34 643 275 110</strong>",
+      contact_block_email: "Email: <strong>info@jetskicorralejo.com</strong>",
+      contact_block_address: "Puerto de Corralejo – 35660, Fuerteventura, Islas Canarias (España)",
+      contact_block_langs: "Hablamos italiano, español, inglés y francés.",
+      contact_block_how: "Estamos a pocos minutos a pie del centro de Corralejo. Si te alojas en hotel, podemos ayudarte a organizar el traslado hasta el puerto.",
+      footer_text: "© Jet Ski Corralejo – Excursiones en moto de agua en Corralejo, Fuerteventura."
+    },
+
+    en: {
+      nav_home: "Home",
+      nav_tours: "Tours",
+      nav_routes: "Route",
+      nav_gallery: "Gallery",
+      nav_contact: "Contact",
+
+      hero_badge: "Jet ski tours",
+      hero_title_main: "Fly on the water",
+      hero_title_sub: "jet ski in Corralejo",
+      hero_keywords: "isla de lobos · dunes · atlantic ocean",
+      hero_text: "Depart from Corralejo harbour and discover Lobos Island and the northern dunes of Fuerteventura with guided jet ski tours. No boat licence required.",
+      hero_cta_primary: "Book now on WhatsApp",
+      hero_cta_secondary: "See all tours",
+      hero_meta1: "Duration: 40–60–90 min",
+      hero_meta2: "Up to 2 people per jet ski",
+      hero_meta3: "Open every day",
+
+      section_tours_title: "Our tours",
+      section_tours_sub: "Choose the jet ski excursion that suits you best: from a first taste of adrenaline to a full adventure between Lobos, dunes and volcanic coast.",
+
+      tours_card1_tag: "40 min · starter",
+      tours_card1_title: "Corralejo Coastline",
+      tours_card1_sub: "first time at sea",
+      tours_card1_text: "Perfect to start: departure from Corralejo harbour, views of the dunes and sections at moderate speed.",
+      tours_card1_price: "from €79 <span>/ jet ski (1–2 people)</span>",
+      tours_card1_li1: "Safety briefing and driving test",
+      tours_card1_li2: "Panoramic view over Corralejo bay",
+      tours_card1_li3: "Ideal if it’s your first time",
+
+      tours_card2_tag: "60 min · best seller",
+      tours_card2_title: "Lobos Island Tour",
+      tours_card2_sub: "island, volcanoes and turquoise water",
+      tours_card2_text: "Complete excursion to Lobos Island with fast sections, photo stops and amazing views towards Lanzarote.",
+      tours_card2_price: "from €99 <span>/ jet ski (1–2 people)</span>",
+      tours_card2_li1: "Ride around Lobos Island",
+      tours_card2_li2: "Professional guide leading the group",
+      tours_card2_li3: "Perfect for couples and friends",
+
+      tours_card3_tag: "90 min · full experience",
+      tours_card3_title: "Atlantic Adventure",
+      tours_card3_sub: "more time, more adrenaline",
+      tours_card3_text: "Our longest tour: extended north coast, panoramic stops and long rides in open sea.",
+      tours_card3_price: "from €139 <span>/ jet ski (1–2 people)</span>",
+      tours_card3_li1: "Flexible route depending on conditions",
+      tours_card3_li2: "Recommended if you already tried jet ski",
+      tours_card3_li3: "Photo and video options during the tour",
+
+      section_routes_title: "Typical route",
+      section_routes_sub: "Every tour is guided by our team and may change with wind and sea, but generally follows these steps.",
+      routes_list_title: "step by step",
+      routes_li1: "Check-in at Corralejo harbour and paperwork",
+      routes_li2: "Safety briefing, hand signals and positions at sea",
+      routes_li3: "Leaving the harbour behind the guide",
+      routes_li4: "Navigation towards Lobos Island and/or dunes area",
+      routes_li5: "Photo stops and time to enjoy the landscape",
+      routes_li6: "Return to the harbour and short debrief",
+      routes_box_title: "Safety & requirements",
+      routes_box_text1: "No boat licence needed, but you must always follow the guide’s instructions. Life jacket is mandatory for all participants.",
+      routes_box_text2: "Minimum age for driver and passenger depends on local rules: contact us for updated details. In case of bad weather we may change the time or day of the tour.",
+
+      section_why_title: "Why choose us",
+      section_why_sub: "Local team, in love with the ocean, offering a safe and fun jet ski experience for everyone.",
+      why1_title: "Professional guide",
+      why1_text: "Our instructors know every corner of Corralejo coast and stay with you throughout the tour.",
+      why2_title: "Equipment included",
+      why2_text: "Life jacket always included, shorty wetsuit when needed, and modern well-maintained jet skis.",
+      why3_title: "For everyone",
+      why3_text: "Tours designed for couples, groups of friends and families with teenagers. You choose the level of adrenaline.",
+      why4_title: "Photos & memories",
+      why4_text: "On request we can help you bring home photos and videos of your ride.",
+
+      section_gallery_title: "Gallery",
+      section_gallery_sub: "A few moments from our excursions among volcanic rocks, crystal clear water and Canarian sky.",
+
+      section_contact_title: "Bookings & contact",
+      section_contact_sub: "Write to us to check availability, get a tailored offer or book your jet ski tour.",
+      contact_label_name: "Full name",
+      contact_label_email: "Email",
+      contact_label_phone: "Phone / WhatsApp",
+      contact_label_date: "Preferred date",
+      contact_label_people: "Number of people",
+      contact_label_message: "Message",
+      contact_submit: "Send request",
+      contact_extra: "We will get back to you as soon as possible with confirmation, available times and final price.",
+      contact_block_title: "Direct contact",
+      contact_block_phone: "Tel/WhatsApp: <strong>+34 643 275 110</strong>",
+      contact_block_email: "Email: <strong>info@jetskicorralejo.com</strong>",
+      contact_block_address: "Corralejo Harbour – 35660, Fuerteventura, Canary Islands (Spain)",
+      contact_block_langs: "We speak Italian, Spanish, English and French.",
+      contact_block_how: "Only a few minutes’ walk from Corralejo centre. If you stay in a hotel we can help you arrange the transfer to the harbour.",
+      footer_text: "© Jet Ski Corralejo – Jet ski tours in Corralejo, Fuerteventura."
+    },
+
+    fr: {
+      nav_home: "Accueil",
+      nav_tours: "Tours",
+      nav_routes: "Parcours",
+      nav_gallery: "Galerie",
+      nav_contact: "Contact",
+
+      hero_badge: "Excursions en jet ski",
+      hero_title_main: "Glissez sur l’eau",
+      hero_title_sub: "jet ski à Corralejo",
+      hero_keywords: "isla de lobos · dunes · océan atlantique",
+      hero_text: "Partez du port de Corralejo et découvrez l’île de Lobos et les dunes du nord de Fuerteventura avec des excursions guidées en jet ski. Aucun permis bateau n’est requis.",
+      hero_cta_primary: "Réserver sur WhatsApp",
+      hero_cta_secondary: "Voir tous les tours",
+      hero_meta1: "Durée : 40–60–90 min",
+      hero_meta2: "Jusqu’à 2 personnes par jet ski",
+      hero_meta3: "Ouvert tous les jours",
+
+      section_tours_title: "Nos tours",
+      section_tours_sub: "Choisissez l’excursion en jet ski qui vous convient le mieux : première expérience ou vraie aventure entre Lobos, dunes et côte volcanique.",
+
+      tours_card1_tag: "40 min · début",
+      tours_card1_title: "Côte de Corralejo",
+      tours_card1_sub: "première fois en mer",
+      tours_card1_text: "Départ du port de Corralejo, vue sur les dunes et sections à vitesse modérée pour profiter tranquillement.",
+      tours_card1_price: "à partir de 79€ <span>/ jet ski (1–2 pers.)</span>",
+      tours_card1_li1: "Briefing de sécurité et essai de conduite",
+      tours_card1_li2: "Panorama sur la baie de Corralejo",
+      tours_card1_li3: "Idéal pour une première fois",
+
+      tours_card2_tag: "60 min · best seller",
+      tours_card2_title: "Tour Isla de Lobos",
+      tours_card2_sub: "île, volcans et eau turquoise",
+      tours_card2_text: "Excursion complète vers l’île de Lobos avec sections rapides, arrêts photos et vues incroyables sur Lanzarote.",
+      tours_card2_price: "à partir de 99€ <span>/ jet ski (1–2 pers.)</span>",
+      tours_card2_li1: "Tour autour de l’île de Lobos",
+      tours_card2_li2: "Guide professionnel en tête du groupe",
+      tours_card2_li3: "Parfait pour couples et amis",
+
+      tours_card3_tag: "90 min · expérience totale",
+      tours_card3_title: "Atlantic Adventure",
+      tours_card3_sub: "plus de temps, plus d’adrénaline",
+      tours_card3_text: "Notre tour le plus complet : côte nord étendue, arrêts panoramiques et longues sections en pleine mer.",
+      tours_card3_price: "à partir de 139€ <span>/ jet ski (1–2 pers.)</span>",
+      tours_card3_li1: "Parcours flexible selon la météo",
+      tours_card3_li2: "Conseillé si vous avez déjà fait du jet ski",
+      tours_card3_li3: "Possibilité de photos et vidéos pendant le tour",
+
+      section_routes_title: "Parcours type",
+      section_routes_sub: "Chaque sortie est encadrée par notre équipe et peut varier selon le vent et la mer, mais suit en général ces étapes.",
+      routes_list_title: "étape par étape",
+      routes_li1: "Check-in au port de Corralejo et formulaire",
+      routes_li2: "Briefing sur la sécurité, les signaux et la position en mer",
+      routes_li3: "Sortie du port en file derrière le guide",
+      routes_li4: "Navigation vers l’île de Lobos et/ou la zone des dunes",
+      routes_li5: "Arrêts photos et temps pour profiter du paysage",
+      routes_li6: "Retour au port et débrief final",
+      routes_box_title: "Sécurité et conditions",
+      routes_box_text1: "Aucun permis bateau n’est requis, mais il est indispensable de suivre les instructions du guide. Gilet de sauvetage obligatoire pour tous les participants.",
+      routes_box_text2: "L’âge minimum du conducteur et du passager dépend de la réglementation locale : contactez-nous pour les détails à jour. En cas de mauvaises conditions météo nous pouvons déplacer l’horaire ou la date du tour.",
+
+      section_why_title: "Pourquoi nous choisir",
+      section_why_sub: "Une équipe locale, passionnée par l’océan, pour une expérience en jet ski sûre, fun et accessible à tous.",
+      why1_title: "Guide professionnel",
+      why1_text: "Nos moniteurs connaissent parfaitement la côte de Corralejo et restent avec vous tout au long de la sortie.",
+      why2_title: "Équipement inclus",
+      why2_text: "Gilet de sauvetage toujours inclus, combinaison courte si besoin et jet skis modernes et bien entretenus.",
+      why3_title: "Pour tout le monde",
+      why3_text: "Tours pensés pour couples, groupes d’amis et familles avec ados. À vous de choisir le niveau d’adrénaline.",
+      why4_title: "Photos & souvenirs",
+      why4_text: "Sur demande, nous pouvons vous aider à repartir avec des photos et vidéos de votre balade.",
+
+      section_gallery_title: "Galerie",
+      section_gallery_sub: "Quelques moments de nos excursions entre roches volcaniques, eau cristalline et ciel des Canaries.",
+
+      section_contact_title: "Réservations & contact",
+      section_contact_sub: "Écrivez-nous pour vérifier la disponibilité, recevoir une offre personnalisée ou réserver votre tour en jet ski.",
+      contact_label_name: "Nom et prénom",
+      contact_label_email: "Email",
+      contact_label_phone: "Téléphone / WhatsApp",
+      contact_label_date: "Date souhaitée",
+      contact_label_people: "Nombre de personnes",
+      contact_label_message: "Message",
+      contact_submit: "Envoyer la demande",
+      contact_extra: "Nous vous répondrons dès que possible avec la confirmation, les horaires disponibles et le prix final.",
+      contact_block_title: "Contact direct",
+      contact_block_phone: "Tel/WhatsApp : <strong>+34 643 275 110</strong>",
+      contact_block_email: "Email : <strong>info@jetskicorralejo.com</strong>",
+      contact_block_address: "Port de Corralejo – 35660, Fuerteventura, Îles Canaries (Espagne)",
+      contact_block_langs: "Nous parlons italien, espagnol, anglais et français.",
+      contact_block_how: "À quelques minutes à pied du centre de Corralejo. Si vous séjournez à l’hôtel, nous pouvons vous aider à organiser le transfert jusqu’au port.",
+      footer_text: "© Jet Ski Corralejo – Excursions en jet ski à Corralejo, Fuerteventura."
+    }
+  };
+
+  const langSelect = document.getElementById('language-select');
+  const i18nElements = document.querySelectorAll('[data-i18n]');
+
+  function setLanguage(lang) {
+    const dict = translations[lang] || translations.it;
+    i18nElements.forEach(el => {
+      const key = el.dataset.i18n;
+      if (dict[key]) {
+        el.innerHTML = dict[key];
+      }
+    });
+    document.documentElement.lang = lang;
+  }
+
+  langSelect.addEventListener('change', (e) => {
+    setLanguage(e.target.value);
+  });
+
+  // lingua iniziale
+  setLanguage('it');
+</script>
+</body>
+</html>
