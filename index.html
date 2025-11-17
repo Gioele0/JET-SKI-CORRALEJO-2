@@ -1,3 +1,13 @@
+Perfetto, eccoti l’`index.html` già corretto: ho sistemato il banner in questo modo:
+
+* **Tolto** `overflow: hidden;` da `.hero`
+* **Aggiunto** `border-radius: 30px;` e `overflow: hidden;` a `.hero-media`
+* **Aggiunto** `border-radius: 30px;` a `.hero-overlay`
+* Aumentato leggermente il padding di `.hero-content` così il testo respira meglio in alto.
+
+Copia e sostituisci tutto il file con questo:
+
+```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -166,7 +176,7 @@
     .hero {
       margin-top: 1.5rem;
       border-radius: 30px;
-      overflow: hidden;
+      /* overflow: hidden;  <-- rimosso per evitare il taglio del testo */
       position: relative;
       box-shadow: var(--shadow);
       background: #000;
@@ -176,16 +186,19 @@
       height: 360px;
       background: #020617 url("img/hero-jetski.jpg") center/cover no-repeat;
       /* Sostituisci hero-jetski.jpg con una foto del sito jetskicorralejofuerteventura.com */
+      border-radius: 30px;   /* aggiunto */
+      overflow: hidden;      /* il contenuto interno è arrotondato senza tagliare il testo */
     }
     .hero-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(to right, rgba(15,23,42,.88), rgba(15,23,42,.25));
+      border-radius: 30px;   /* aggiunto */
     }
     .hero-content {
       position: absolute;
       inset: 0;
-      padding: 1.8rem 2rem;
+      padding: 2.2rem 2rem 1.8rem; /* un po’ più spazio in alto */
       display: flex;
       flex-direction: column;
       justify-content: center;
