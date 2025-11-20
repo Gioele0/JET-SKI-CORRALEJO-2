@@ -171,30 +171,31 @@
       box-shadow: var(--shadow);
       background: #000;
     }
-    .hero-media {
-      position: relative;
-      height: 360px;
-      background: #020617 url("img/hero-jetski.jpg") center/cover no-repeat;
-      /* Sostituisci hero-jetski.jpg con una foto del sito jetskicorralejofuerteventura.com */
-      border-radius: 30px;   /* aggiunto */
-      overflow: hidden;      /* il contenuto interno è arrotondato senza tagliare il testo */
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, rgba(15,23,42,.88), rgba(15,23,42,.25));
-      border-radius: 30px;   /* aggiunto */
-    }
-    .hero-content {
-      position: absolute;
-      inset: 0;
-      padding: 2.2rem 2rem 1.8rem; /* un po’ più spazio in alto */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      max-width: 600px;
-      color: #fff;
-    }
+  .hero-media {
+  position: relative;
+  background: #020617 url("img/hero-jetski.jpg") center/cover no-repeat;
+  border-radius: 30px;
+  padding: 2.6rem 2rem 2.2rem; /* gestisce l'altezza tramite padding */
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(15,23,42,.88), rgba(15,23,42,.25));
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;   /* NON più absolute */
+  z-index: 1;
+  max-width: 600px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
     .hero-badge {
       display: inline-flex;
       align-items: center;
